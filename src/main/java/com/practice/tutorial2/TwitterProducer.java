@@ -79,6 +79,11 @@ public class TwitterProducer {
         properties.setProperty(ProducerConfig.ACKS_CONFIG, "all");
         properties.setProperty(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, "5"); // kafka 2.0 >= 1.1 use 5 otherwise use 1
 
+        // High throughput producer(at the expense of a bit of latency and CPU usage)
+        properties.setProperty(ProducerConfig.COMPRESSION_TYPE_CONFIG, "snappy"); //created by google
+        properties.setProperty(ProducerConfig.LINGER_MS_CONFIG, "20");
+        properties.setProperty(ProducerConfig.BATCH_SIZE_CONFIG, Integer.toString(32*1024));
+
         return properties;
     }
 
