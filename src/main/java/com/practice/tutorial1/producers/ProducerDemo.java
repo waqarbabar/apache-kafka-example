@@ -1,4 +1,4 @@
-package com.practice.producer.demo;
+package com.practice.tutorial1.producers;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -6,7 +6,6 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.util.Properties;
-import java.util.stream.Stream;
 
 public class ProducerDemo {
 
