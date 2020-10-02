@@ -20,10 +20,10 @@ public class TwitterClient {
 
     private Logger logger = LoggerFactory.getLogger(TwitterClient.class);
 
-    private static final String CONSUMER_KEY = "FgGGd9mSb3FJew4zh6WjmniP4";
-    private static final String CONSUMER_SECRET = "7Kx1qOw3TmF0VL3PpCzad0GXKCtw6ynK7OtT2Gz8PAL8qTjDDq";
-    private static final String TOKEN = "1245167467-ySbuQI3W1Pk5UQRidcGpxG5Jnc6TVnimn9p7rYM";
-    private static final String SECRET = "BfBCam3xvp4aSShQ2qv1m6YGLwKMP8vAAovIcSdYtSnWK";
+    private static final String CONSUMER_KEY = "<add your own>";
+    private static final String CONSUMER_SECRET = "<add your own>";
+    private static final String TOKEN = "<add your own>";
+    private static final String SECRET = "<add your own>";
 
     private BlockingQueue<String> msgQueue;
 
