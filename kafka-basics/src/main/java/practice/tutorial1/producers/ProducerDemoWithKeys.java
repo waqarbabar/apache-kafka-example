@@ -1,4 +1,4 @@
-package com.practice.tutorial1.producers;
+package practice.tutorial1.producers;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -11,17 +11,21 @@ import org.slf4j.LoggerFactory;
 import java.util.Properties;
 
 
-public class ProducerDemoWithCallback {
-    static Logger logger = LoggerFactory.getLogger(ProducerDemoWithCallback.class);
+public class ProducerDemoWithKeys {
+    static Logger logger = LoggerFactory.getLogger(ProducerDemoWithKeys.class);
 
     public static final String BOOTSTRAP_SERVER = "127.0.0.1:9092";
     public static final String TOPIC_NAME = "waqar_practic_topic";
 
     public static void main(String[] args) {
+        int msgCount = 200000;
         KafkaProducer<String, String> producer = new KafkaProducer<String, String>(getProducerProperties());
 
-        for(int i=0;i< 100000; i++)
-            producer.send(getProducerRecord("hello world" + i), ProducerDemoWithCallback::onMessageSuccessfullySent);
+        for(int i=1; i<= msgCount; i++){
+            String key = i <= msgCount/2 ? "id_below_" : (i%2 == 0) ? "id_even_" :"id_odd_" ;
+
+            producer.send(getProducerRecord(key, "hello world " + i +" "+ key+"_....."), ProducerDemoWithKeys::onMessageSuccessfullySent);
+        }
         producer.flush();
         producer.close();
     }
@@ -34,8 +38,8 @@ public class ProducerDemoWithCallback {
         return properties;
     }
 
-    private static ProducerRecord getProducerRecord(String value) {
-        return new ProducerRecord<String, String>(TOPIC_NAME, value);
+    private static ProducerRecord getProducerRecord(String key, String value) {
+        return new ProducerRecord<String, String>(TOPIC_NAME, key, value);
     }
 
 
@@ -45,8 +49,7 @@ public class ProducerDemoWithCallback {
                     "Topic: " +recordMetadata.topic()+ "\n" +
                     "Partition: "+recordMetadata.partition()+"\n"+
                     "Offset: "+recordMetadata.offset()+"\n"+
-                    "Timestamp: "+recordMetadata.timestamp()
-            );
+                    "Timestamp: "+recordMetadata.timestamp());
         }else {
             logger.error("Error while producing: ", e);
         }

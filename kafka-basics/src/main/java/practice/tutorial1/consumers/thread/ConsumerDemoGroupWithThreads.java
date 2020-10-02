@@ -1,4 +1,4 @@
-package com.practice.tutorial1.consumers.thread;
+package practice.tutorial1.consumers.thread;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,4 @@
-package com.practice.tutorial2;
+package practice.tutorial2;
 
 import com.twitter.hbc.core.Client;
 import org.apache.kafka.clients.producer.KafkaProducer;

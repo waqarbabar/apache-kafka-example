@@ -1,4 +1,4 @@
-package com.practice.tutorial1.consumers;
+package practice.tutorial1.consumers;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -12,9 +12,9 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.Properties;
 
-public class ConsumerDemoGroups {
+public class ConsumerDemo {
 
-    private static Logger logger = LoggerFactory.getLogger(ConsumerDemoGroups.class);
+    private static Logger logger = LoggerFactory.getLogger(ConsumerDemo.class);
     public static final String BOOTSTRAP_SERVER = "127.0.0.1:9092";
     public static final String TOPIC_NAME = "waqar_practic_topic";
 
