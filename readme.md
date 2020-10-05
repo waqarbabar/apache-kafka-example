@@ -27,9 +27,18 @@
 
 2- Run command from kafka root folder `kafka-server-start.bat config\server.properties`
 
- 
-    
+###6- Kafka connect twitter
+1- kafka connect is used from this repo https://github.com/jcustenborder/kafka-connect-twitter/releases
 
+2- Download zip from given link and extract it.
 
+3- create new directory structure in project apache-kafka-example/kafka-connect/connectors/kafka-connect-twitter
 
+4- Copy the jars from extracted zip and put them in the kafka-connect-twitter
 
+5- copy connect-standalone.properties file from kakfa configs and and add `connectors` next to the `plugin.path=` 
+
+6- create the  `twitter.properties` file and put the details as given in the project
+
+2- use command from kafka-connect folder `connect-standalone.bat connect-standalone.properties twitter.properties
+`
